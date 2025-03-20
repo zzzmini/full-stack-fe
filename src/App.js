@@ -3,11 +3,10 @@ import axios from "axios";
 
 function App() {
   const [currentTime, setCurrentTime] = useState('');
-  const apiUrl = process.env.REACT_APP_API_URL; // .env에서 설정한 API URL 가져오기
-
+  
   useEffect(() => {
     // /api/time 엔드포인트로 GET 요청을 보냄
-    axios.get(`{apiUrl}/api/time`)
+    axios.get(`http://0.0.0.0/api/time`)
       .then(response => {
         setCurrentTime(response.data);
       })

@@ -5,8 +5,10 @@ function App() {
   const [currentTime, setCurrentTime] = useState('');
   
   useEffect(() => {
+    // axios의 기본 설정으로 API URL을 설정
+    axios.defaults.baseURL = 'http://0.0.0.0:8080'; // 여기에서 호스트 설정
     // /api/time 엔드포인트로 GET 요청을 보냄
-    axios.get(`http://0.0.0.0/api/time`)
+    axios.get('/api/time')
       .then(response => {
         setCurrentTime(response.data);
       })

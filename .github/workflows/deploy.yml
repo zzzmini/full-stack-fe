@@ -30,4 +30,6 @@ jobs:
           echo "AWS 연결"
           sudo timedatectl set-timezone Asia/Seoul
           docker pull ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_IMAGE_NAME }}-fe
-          docker-compose up -d
+          docker-compose down
+          docker-compose up -d --force-recreate --remove-orphans
+          docker system prune -f
